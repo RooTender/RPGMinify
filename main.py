@@ -26,3 +26,7 @@ for map in os.listdir(maps_path):
     for file in image_obsoletes:
         if utils.get_filename(file) in map_data:
             image_obsoletes.remove(file)
+
+obsoletes = audio_obsoletes + image_obsoletes
+for obsolete in obsoletes:
+    os.remove(obsolete)
