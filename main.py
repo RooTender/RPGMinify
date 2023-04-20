@@ -1,5 +1,6 @@
+import copy
 import os
-import json
+import re
 import utils
 
 title = 'TooManyFilesRPGM'
@@ -18,13 +19,32 @@ image_obsoletes = utils.get_files(image_files_path)
 for map in os.listdir(maps_path):
     with open(os.path.join(maps_path, map), 'r') as file:
         map_data = file.read()
-    
-    for file in audio_obsoletes:
-        if utils.get_filename(file) in map_data:
+
+    files = copy.copy(audio_obsoletes)
+    for file in files:
+        if '"{}"'.format(utils.get_filename(file)) in map_data:
             audio_obsoletes.remove(file)
     
-    for file in image_obsoletes:
-        if utils.get_filename(file) in map_data:
+    files = copy.copy(image_obsoletes)
+    for file in files:
+        if '"{}"'.format(utils.get_filename(file)) in map_data:
+            image_obsoletes.remove(file)
+
+scripts_path = os.path.join('www', 'js')
+scripts = utils.get_files(scripts_path)
+
+for script in scripts:
+    with open(script, 'r', encoding="utf8") as file:
+        script_data = file.read();
+
+    files = copy.copy(audio_obsoletes)
+    for file in files:
+        if re.search("(?<![a-zA-Z\d]){}(?![a-zA-Z\d])".format(utils.get_filename(file)), script_data):
+            audio_obsoletes.remove(file)
+
+    files = copy.copy(image_obsoletes)
+    for file in files:
+        if re.search("(?<![a-zA-Z\d]){}(?![a-zA-Z\d])".format(utils.get_filename(file)), script_data):
             image_obsoletes.remove(file)
 
 obsoletes = audio_obsoletes + image_obsoletes
