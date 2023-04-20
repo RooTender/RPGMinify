@@ -18,7 +18,7 @@ audio_obsoletes = utils.get_files(audio_files_path)
 image_obsoletes = utils.get_files(image_files_path)
 
 for map in tqdm(os.listdir(maps_path), desc="Game assets dependencies"):
-    with open(os.path.join(maps_path, map), 'r') as file:
+    with open(os.path.join(maps_path, map), 'r', encoding="utf8") as file:
         map_data = file.read()
 
     files = copy.copy(audio_obsoletes)
