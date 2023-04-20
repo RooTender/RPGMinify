@@ -12,24 +12,17 @@ if not os.path.exists(maps_path):
 audio_files_path = os.path.join('www', 'audio')
 image_files_path = os.path.join('www', 'img')
 
-audio_files = utils.get_files(audio_files_path)
-image_files = utils.get_files(image_files_path)
-
-audio_obsoletes = []
-image_obsoletes = []
+audio_obsoletes = utils.get_files(audio_files_path)
+image_obsoletes = utils.get_files(image_files_path)
 
 for map in os.listdir(maps_path):
     with open(os.path.join(maps_path, map), 'r') as file:
         map_data = file.read()
     
-    for file in audio_files:
-        if not utils.get_filename(file) in map_data and file not in audio_obsoletes:
-            audio_obsoletes.append(file)
-
-    for file in image_files:
-        if not utils.get_filename(file) in map_data and file not in image_files:
-            image_obsoletes.append(file)
-
-
-print(audio_obsoletes)
-#print(audio_obsoletes)
+    for file in audio_obsoletes:
+        if utils.get_filename(file) in map_data:
+            audio_obsoletes.remove(file)
+    
+    for file in image_obsoletes:
+        if utils.get_filename(file) in map_data:
+            image_obsoletes.remove(file)
