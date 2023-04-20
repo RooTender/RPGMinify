@@ -1,4 +1,13 @@
+import os
 import json
+
+def get_directories(path:str):
+    result = []
+    for directory in os.listdir(path):
+        if os.path.isdir(os.path.join(path, directory)):
+            result.append(directory)
+
+    return result
 
 def find_values(data:str, property:str):
     results = []

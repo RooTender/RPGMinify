@@ -9,10 +9,16 @@ if not os.path.exists(dependencies_maps):
     print('Please run {title} in the folder with Game.exe'.format(title=title))
     #exit(1)
 
+audio_files_path = os.path.join('www', 'audio')
+image_files_path = os.path.join('www', 'img')
+
+audio_files = utils.get_directories(audio_files_path)
+image_files = utils.get_directories(image_files_path)
+
 for dependency_map in os.listdir(dependencies_maps):
     with open(os.path.join(dependencies_maps, dependency_map), 'r') as file:
         data = file.read()
-        
+    
     print(utils.find_values(data, 'bgm'))
-
+    utils.find_values(data, 'bgm')
     break
