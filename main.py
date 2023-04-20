@@ -8,7 +8,7 @@ maps_path = os.path.join('www', 'data')
 
 if not os.path.exists(maps_path):
     print('Please run {title} in the folder with Game.exe'.format(title=title))
-    #exit(1)
+    exit(1)
 
 audio_files_path = os.path.join('www', 'audio')
 image_files_path = os.path.join('www', 'img')
