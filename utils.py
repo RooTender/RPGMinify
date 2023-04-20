@@ -32,3 +32,24 @@ def find_values(data:str, property:str):
 
     json.loads(data, object_hook=_decode_dict) # Return value ignored.
     return results
+
+def get_game_size():
+    total_size = 0
+    for dirpath, _, filenames in os.walk('.'):
+        for f in filenames:
+            fp = os.path.join(dirpath, f)
+            # skip if it is symbolic link
+            if not os.path.islink(fp):
+                total_size += os.path.getsize(fp)
+
+    return total_size
+
+def print_with_unit(size):
+    unit = ['B', 'KB', 'MB', 'GB']
+
+    exponent = 0
+    while (round(size / 1024) > 0):
+        size /= 1024
+        exponent += 1
+
+    return '{size}{unit}'.format(size=round(size), unit=unit[exponent])
