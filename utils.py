@@ -1,13 +1,20 @@
 import os
 import json
 
-def get_directories(path:str):
+def get_files(path:str):
     result = []
-    for directory in os.listdir(path):
-        if os.path.isdir(os.path.join(path, directory)):
-            result.append(directory)
+    for file in os.listdir(path):
+        file_path = os.path.join(path, file)
+
+        if os.path.isdir(file_path):
+            result.extend(get_files(file_path))
+        else:
+            result.append(file_path)
 
     return result
+
+def jsonify(data:str):
+    return str(data.replace('\'', '"'))
 
 def find_values(data:str, property:str):
     results = []
