@@ -13,6 +13,10 @@ def get_files(path:str):
 
     return result
 
+def get_filename(path:dict):
+    filename = os.path.basename(path)
+    return os.path.splitext(filename)[0]
+
 def jsonify(data:str):
     return str(data.replace('\'', '"'))
 
