@@ -52,4 +52,4 @@ def print_with_unit(size):
         size /= 1024
         exponent += 1
 
-    return '{size}{unit}'.format(size=round(size), unit=unit[exponent])
+    return '{size}{unit}'.format(size=round(size, 2), unit=unit[exponent])
