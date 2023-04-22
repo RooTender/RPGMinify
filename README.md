@@ -1,5 +1,9 @@
 # RPGMinify 📦
 
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=RooTender_RPGMinify&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=RooTender_RPGMinify)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=RooTender_RPGMinify&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=RooTender_RPGMinify)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=RooTender_RPGMinify&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=RooTender_RPGMinify)
+
 RPGMinify is a tool, created for game developers using **RPG Maker**, that allows you to optimize game files during the production process.
 
 ![showcase](showcase.gif)
