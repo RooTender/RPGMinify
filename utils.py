@@ -1,4 +1,5 @@
 import os
+import math
 import json
 
 def get_files(path:str):
@@ -48,7 +49,7 @@ def print_with_unit(size):
     unit = ['B', 'KB', 'MB', 'GB']
 
     exponent = 0
-    while (round(size / 1024) > 0):
+    while (math.floor(size / 1024) > 0):
         size /= 1024
         exponent += 1
 
