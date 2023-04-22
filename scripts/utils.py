@@ -2,7 +2,8 @@ import os
 import math
 import json
 
-def get_files(path:str):
+
+def get_files(path: str):
     result = []
     for file in os.listdir(path):
         file_path = os.path.join(path, file)
@@ -14,14 +15,17 @@ def get_files(path:str):
 
     return result
 
-def get_filename(path:dict):
+
+def get_filename(path: dict):
     filename = os.path.basename(path)
     return os.path.splitext(filename)[0]
 
-def jsonify(data:str):
+
+def jsonify(data: str):
     return str(data.replace('\'', '"'))
 
-def find_values(data:str, property:str):
+
+def find_values(data: str, property: str):
     results = []
 
     def _decode_dict(a_dict):
@@ -31,8 +35,9 @@ def find_values(data:str, property:str):
             pass
         return a_dict
 
-    json.loads(data, object_hook=_decode_dict) # Return value ignored.
+    json.loads(data, object_hook=_decode_dict)
     return results
+
 
 def get_game_size():
     total_size = 0
@@ -44,6 +49,7 @@ def get_game_size():
                 total_size += os.path.getsize(fp)
 
     return total_size
+
 
 def print_with_unit(size):
     unit = ['B', 'KB', 'MB', 'GB']
