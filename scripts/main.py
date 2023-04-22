@@ -15,7 +15,7 @@ if not os.path.exists(maps_path):
     print('Please run {title} in the folder with Game.exe'.format(title=title))
     exit(1)
 else:
-    print('Game files found!'.format(title=title))
+    print('Game files found!')
 
 print('Removing unused files...')
 
