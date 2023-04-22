@@ -3,6 +3,10 @@ import os
 import re
 import utils
 from tqdm import tqdm
+import sys
+
+# prevent python from creating cache files
+sys.dont_write_bytecode = True
 
 title = 'TooManyFilesRPGM'
 maps_path = os.path.join('www', 'data')
