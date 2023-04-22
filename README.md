@@ -6,9 +6,10 @@ RPGMinify is a tool, created for game developers using **RPG Maker**, that allow
 
 ## How to use this tool?
 
-1. Open folder with your game
-2. Drag & drop this tool there
-3. Simply run it
+1. Download the executable from the latest release
+2. Drag & drop the tool to folder with your game
+3. Run the executable
+4. Well done, enjoy optimized game 🎉
 
 ## Features
 
