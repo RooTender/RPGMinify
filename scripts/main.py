@@ -51,13 +51,15 @@ for script in tqdm(scripts, desc="Engine & plugin dependencies"):
     previous_image_obsoletes = copy.copy(image_obsoletes)
     pattern = r"(?<![a-zA-Z\d]){}(?![a-zA-Z\d])"
 
-    for audio in previous_audio_obsoletes:
-        filename = utils.get_filename(audio)
+    print("Processing {}...".format(script))
+
+    for audio in tqdm(previous_audio_obsoletes, desc="audio", leave=False):
+        filename = re.escape(utils.get_filename(audio))
         if re.search(pattern.format(filename), script_data):
             audio_obsoletes.remove(audio)
 
-    for image in previous_image_obsoletes:
-        filename = utils.get_filename(image)
+    for image in tqdm(previous_image_obsoletes, desc="images", leave=False):
+        filename = re.escape(utils.get_filename(image))
         if re.search(pattern.format(filename), script_data):
             image_obsoletes.remove(image)
 
